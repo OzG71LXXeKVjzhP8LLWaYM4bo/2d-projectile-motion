@@ -46,8 +46,11 @@ fn main() -> Result<(), Box<dyn Error>> {
         x  += vx * dt; // adding velocity to position
         y  += vy * dt; // adding velocity to position
         t  += dt; // adding timestep
-
-        wtr.write_record(&[t.to_string(), x.to_string(), y.to_string()])?;
+        if y > 0.0 {
+            wtr.write_record(&[t.to_string(), x.to_string(), y.to_string()])?;
+        } else {
+            break;
+        }
     }
 
     wtr.flush()?; // make sure file is saved
