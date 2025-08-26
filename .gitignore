@@ -1,0 +1,38 @@
+# Simulation results (ignore generated outputs)
+/results/
+sim/results/ 
+
+# General ignores
+
+# Rust build artifacts
+**/target/
+
+# Profiling artifacts
+*.prof
+*.profraw
+*.profdata
+
+# Logs
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE settings
+.vscode/
+.idea/
+*.iml
+
+# Swap/backup files
+*~
+*.swp
+*.swo
+*.rs.bk
+
+# Environment files
+.env
+.env.*
+
+# Cargo/local tooling
+.cargo/ 
