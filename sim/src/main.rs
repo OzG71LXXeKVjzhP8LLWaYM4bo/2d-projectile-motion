@@ -13,7 +13,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     // parameters
     let v0 = read_env_var_f64("V0", 50.0);                // initial speed (m/s)
-    let angle_deg = read_env_var_f64("ANGLE_DEG", 45.0);   // launch angle
+    let angle_deg = read_env_var_f64("ANGLE_DEG", 45.0);  // launch angle
     let y0 = read_env_var_f64("Y0", 0.0);                 // initial height
     let g = read_env_var_f64("G", 9.81);                  // gravity
     let m = read_env_var_f64("M", 1.0);                   // mass
