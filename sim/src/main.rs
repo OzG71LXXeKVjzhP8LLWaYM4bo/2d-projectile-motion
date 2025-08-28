@@ -13,7 +13,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     // parameters
     let v0 = read_env_var_f64("V0", 50.0);                // initial speed (m/s)
-    let angle_deg = read_env_var_f64("ANGLE_DEG", 45.0);   // launch angle
+    let angle_deg = read_env_var_f64("ANGLE_DEG", 45.0);  // launch angle
     let y0 = read_env_var_f64("Y0", 0.0);                 // initial height
     let g = read_env_var_f64("G", 9.81);                  // gravity
     let m = read_env_var_f64("M", 1.0);                   // mass
@@ -46,8 +46,11 @@ fn main() -> Result<(), Box<dyn Error>> {
         x  += vx * dt; // adding velocity to position
         y  += vy * dt; // adding velocity to position
         t  += dt; // adding timestep
-
-        wtr.write_record(&[t.to_string(), x.to_string(), y.to_string()])?;
+        if y > 0.0 {
+            wtr.write_record(&[t.to_string(), x.to_string(), y.to_string()])?;
+        } else {
+            break;
+        }
     }
 
     wtr.flush()?; // make sure file is saved
